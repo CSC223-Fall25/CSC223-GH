@@ -26,7 +26,6 @@ public class DNA {
         char c = 'C';
         
         for (int i=0; i<dna.length(); i++){
-            System.out.println(dna.charAt(i));
             if (dna.charAt(i) == g){
                 G+= 1;
             }
