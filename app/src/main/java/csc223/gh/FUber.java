@@ -19,5 +19,6 @@ public class FUber {
         System.out.println(FUber.euclidean(0, 0, 6, 6));
         System.out.println(FUber.manhattan(0, 0, 6, 6));
     }
+
 }
 
