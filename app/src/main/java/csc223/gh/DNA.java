@@ -70,6 +70,8 @@ public class DNA {
     }
 
     public static void main(String[] args){
+        System.out.println(DNA.countNucleotides("AAAACCCGGT"));
+        System.out.println(DNA.transcribe("AAAACCCGGT"));
         System.out.println(DNA.reverseComplement("AAAACCCGGT"));
     }
 
