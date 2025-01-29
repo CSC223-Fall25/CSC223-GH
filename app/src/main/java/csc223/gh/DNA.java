@@ -42,9 +42,35 @@ public class DNA {
         return String.format("%d %d %d %d", A, C, G, T);
 
     }
-    public static void main(String[] args){
-        System.out.println(DNA.countNucleotides("GATTACA"));
+    
+    public static String transcribe(String dna){
+        return dna.replace('T', 'U');
     }
-    // public static String transcribe(String dna);
-    // public static String reverseComplement(String dna);
+
+    public static String reverseComplement(String dna){
+        String complement = "";
+
+        for (int i=dna.length()-1; i>=0; --i){
+            if (dna.charAt(i)=='G'){
+                complement += 'C';
+            }
+            else if (dna.charAt(i)=='C'){
+                complement += 'G';
+            }
+            else if (dna.charAt(i)=='A'){
+                complement += 'T';
+            }
+            else if (dna.charAt(i)=='T'){
+                complement += 'A';
+            }
+            
+        }
+        return complement;
+
+    }
+
+    public static void main(String[] args){
+        System.out.println(DNA.reverseComplement("AAAACCCGGT"));
+    }
+
 }
