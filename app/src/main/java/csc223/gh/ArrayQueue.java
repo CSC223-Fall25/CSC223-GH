@@ -1,24 +1,31 @@
 package csc223.gh;
 
-public class ArrayQueue implements Queue{
-    int[] arr = new int[10];
-    int curr=0;
+public class ArrayQueue<T> implements Queue<T>{
+    T[] arr;
+    int curr;
+    int q_length;
+    public ArrayQueue(int desired_length){
+        this.arr = (T[]) new Object[desired_length];
+        this.curr = 0;
+        this.q_length = desired_length;
+    }
+    
 
-    public void enqueue(int item){
+    public void enqueue(T item){
         arr[curr] = item;
         curr+=1;
     }
 
-    public int dequeue(){
-        int out = arr[0];
-        int[] newArr = new int[arr.length];
-        System.arraycopy(arr, 1, newArr, 0, 9);
+    public T dequeue(){
+        T out = arr[0];
+        T[] newArr = (T[]) new Object[q_length];
+        System.arraycopy(arr, 1, newArr, 0, q_length);
         arr = newArr;
         curr-=1;
         return out;
     }
 
-    public int peek(){
+    public T peek(){
         return arr[0];
     }
 

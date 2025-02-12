@@ -1,9 +1,9 @@
 package csc223.gh;
 
-public interface Queue {
+public interface Queue<T> {
     void enqueue(int item);
-    int dequeue();
-    int peek();
+    T dequeue();
+    T peek();
     boolean isEmpty();
     int size();
 }
