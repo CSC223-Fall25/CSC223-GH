@@ -10,6 +10,7 @@ public class SinglyLinkedList implements LinkedList{
     }
 
     public void insert(char item){
+        size+=1;
         if(this.head==null){
             this.head = new Node(item);
         }
@@ -25,13 +26,18 @@ public class SinglyLinkedList implements LinkedList{
     public void remove(char item){
         if(head==null){
             System.out.println("empty ll");
+            return;
         }
         else if(head.data==item){
             if(head.next!=null){
                 head = head.next;
+                size-=1;
+                return;
             }
             else{
                 head=null;
+                size-=1;
+                return;
             }
         }
 
@@ -40,15 +46,18 @@ public class SinglyLinkedList implements LinkedList{
             if(curr.next.data==item){
                 if(curr.next.next==null){
                     curr.next=null;
+                    this.size-=1;
                     return;
                 }
                 else{
                     curr.next=curr.next.next;
+                    this.size-=1;
                     return;
                 }
             }
             curr=curr.next;
         }
+
     }
 
     public char get(int index){
@@ -58,6 +67,7 @@ public class SinglyLinkedList implements LinkedList{
                 return '☠';
             }
             curr=curr.next;
+            index-=1;
         }
         return curr.data;
 
@@ -66,7 +76,7 @@ public class SinglyLinkedList implements LinkedList{
     public int indexOf(char item){
         Node curr = head;
         int count = 0;
-        while(curr.next != null){
+        while(curr != null){
             if(curr.data==item){
                 return count;
             }
@@ -79,7 +89,7 @@ public class SinglyLinkedList implements LinkedList{
         Node curr = head;
         int count = 0;
         int lastbest = -1;
-        while(curr.next != null){
+        while(curr != null){
             if(curr.data==item){
                 lastbest = count;
             }
@@ -91,7 +101,7 @@ public class SinglyLinkedList implements LinkedList{
 
     public boolean contains(char item){
         Node curr = head;
-        while(curr.next != null){
+        while(curr != null){
             if(curr.data == item){
                 return true;
             }
@@ -101,6 +111,7 @@ public class SinglyLinkedList implements LinkedList{
     }
     public void clear(){
         this.head = null;
+        this.size=0;
     }
 
     public char getFirst(){
@@ -131,6 +142,7 @@ public class SinglyLinkedList implements LinkedList{
 
     private Node reverse(Node n){
         if (n==null || n.next==null){
+            head = n;
             return n;
         }
         Node remains = reverse(n.next);
