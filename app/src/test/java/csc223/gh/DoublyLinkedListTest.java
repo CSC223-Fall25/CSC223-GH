@@ -1,13 +1,11 @@
 package csc223.gh;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-
-public class SinglyLinkedListTest {
+public class DoublyLinkedListTest {
 
     @Test void insert_test(){
-        SinglyLinkedList l = new SinglyLinkedList();
+        DoublyLinkedList l = new DoublyLinkedList();
         l.insert('G');
         l.insert('R');
         assertEquals(l.head.data,'G');
@@ -15,7 +13,7 @@ public class SinglyLinkedListTest {
     }
 
     @Test void remove_test(){
-        SinglyLinkedList l = new SinglyLinkedList();
+        DoublyLinkedList l = new DoublyLinkedList();
         l.insert('G');
         l.insert('R');
         l.remove('R');
@@ -27,7 +25,7 @@ public class SinglyLinkedListTest {
     }
 
     @Test void indexOfTest(){
-        SinglyLinkedList l = new SinglyLinkedList();
+        DoublyLinkedList l = new DoublyLinkedList();
         l.insert('G');
         l.insert('R');
         l.insert('R');
@@ -37,7 +35,7 @@ public class SinglyLinkedListTest {
     }
 
     @Test void lastIndexOfTest(){
-        SinglyLinkedList l = new SinglyLinkedList();
+        DoublyLinkedList l = new DoublyLinkedList();
         l.insert('G');
         l.insert('R');
         l.insert('R');
@@ -49,7 +47,7 @@ public class SinglyLinkedListTest {
     }
 
     @Test void containsTest(){
-        SinglyLinkedList l = new SinglyLinkedList();
+        DoublyLinkedList l = new DoublyLinkedList();
         l.insert('G');
         l.insert('R');
         assertEquals(l.contains('G'), true);
@@ -58,7 +56,7 @@ public class SinglyLinkedListTest {
     }
 
     @Test void sizeTest(){
-        SinglyLinkedList l = new SinglyLinkedList();
+        DoublyLinkedList l = new DoublyLinkedList();
         assertEquals(l.size(), 0);
         l.insert('G');
         assertEquals(l.size(), 1);
@@ -69,7 +67,7 @@ public class SinglyLinkedListTest {
     }
 
     @Test void getTest(){
-        SinglyLinkedList l = new SinglyLinkedList();
+        DoublyLinkedList l = new DoublyLinkedList();
         l.insert('G');
         l.insert('R');
         assertEquals(l.get(0), 'G');
@@ -78,7 +76,7 @@ public class SinglyLinkedListTest {
     }
 
     @Test void clearTest(){
-        SinglyLinkedList l = new SinglyLinkedList();
+        DoublyLinkedList l = new DoublyLinkedList();
         l.insert('G');
         l.insert('R');
         l.clear();
@@ -87,7 +85,7 @@ public class SinglyLinkedListTest {
     }
 
     @Test void getFirstTest(){
-        SinglyLinkedList l = new SinglyLinkedList();
+        DoublyLinkedList l = new DoublyLinkedList();
         assertEquals(l.getFirst(), '☠');
         l.insert('G');
         l.insert('R');
@@ -95,7 +93,7 @@ public class SinglyLinkedListTest {
     }
 
     @Test void getLastTest(){
-        SinglyLinkedList l = new SinglyLinkedList();
+        DoublyLinkedList l = new DoublyLinkedList();
         assertEquals(l.getLast(), '☠');
         l.insert('G');
         l.insert('R');
@@ -103,15 +101,18 @@ public class SinglyLinkedListTest {
     }
 
     @Test void isEmptyTest(){
-        SinglyLinkedList l = new SinglyLinkedList();
+        DoublyLinkedList l = new DoublyLinkedList();
         assertEquals(l.isEmpty(), true);
         l.insert('G');
         l.insert('R');
-        assertEquals(l.isEmpty(), false);   
+        assertEquals(l.isEmpty(), false);  
+        l.remove('G');
+        l.remove('R');
+        assertEquals(l.isEmpty(), true);
     }
 
     @Test void reverseTest(){
-        SinglyLinkedList l = new SinglyLinkedList();
+        DoublyLinkedList l = new DoublyLinkedList();
         l.insert('G');
         l.insert('R');
         l.insert('E');
@@ -122,7 +123,9 @@ public class SinglyLinkedListTest {
         l.reverse();
         assertEquals(l.getFirst(), 'N');
         assertEquals(l.head.data, 'N');
+        assertEquals(l.head.prev, null);
         assertEquals(l.head.next.data, 'O');
+        assertEquals(l.head.next.prev, l.head);
         assertEquals(l.getLast(),'G');
     }
 
