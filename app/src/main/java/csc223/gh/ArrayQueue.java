@@ -19,7 +19,7 @@ public class ArrayQueue<T> implements Queue<T>{
     public T dequeue(){
         T out = arr[0];
         T[] newArr = (T[]) new Object[q_length];
-        System.arraycopy(arr, 1, newArr, 0, q_length);
+        System.arraycopy(arr, 1, newArr, 0, q_length-1);
         arr = newArr;
         curr-=1;
         return out;
