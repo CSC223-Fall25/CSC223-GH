@@ -1,10 +1,10 @@
 package csc223.gh;
 
-public class TreeNode{
-    TreeNode left;
-    TreeNode right;
-    char data;
-    public TreeNode(char data){
+public class TreeNode<T>{
+    TreeNode<T> left;
+    TreeNode<T> right;
+    T data;
+    public TreeNode(T data){
         this.left = null;
         this.right = null;
         this.data = data;
